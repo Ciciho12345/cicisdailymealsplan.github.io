@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Meal Plan Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #fff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #444;
+        }
+
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px 20px;
+            margin-top: 20px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #007BFF;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .meal-plan {
+            margin-top: 20px;
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        .meal {
+            margin-bottom: 20px;
+        }
+
+        .meal h2 {
+            color: #555;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Daily Meal Plan Generator</h1>
+        <p>Generate a healthy daily meal plan tailored for your fitness goals.</p>
+        <button onclick="generateMealPlan()">Generate Meal Plan</button>
+        <div class="meal-plan" id="meal-plan"></div>
+    </div>
+
+    <script>
+        const mealOptions = {
+            breakfast: [
+                "1 scoop ON whey protein + 200ml almond milk + 50g oatmeal + 1 banana",
+                "2 boiled eggs + 1 slice whole grain toast + 1 cup black coffee",
+                "Smoothie: 1 scoop ON whey protein + 100g frozen berries + 200ml water + 1 tsp chia seeds",
+                "Avocado toast: 1 slice whole grain toast + 50g avocado + 1 boiled egg"
+            ],
+            lunch: [
+                "100g grilled chicken breast + 150g steamed broccoli + 100g sweet potato",
+                "Salad: 1 scoop ON whey protein shake + mixed greens + 1 boiled egg + 1 tbsp olive oil",
+                "150g salmon + 100g quinoa + 100g asparagus",
+                "100g turkey breast + 150g roasted vegetables (zucchini, bell peppers) + 50g brown rice"
+            ],
+            dinner: [
+                "100g lean beef + 150g spinach + 100g baked sweet potato",
+                "150g cod + 200g cauliflower mash + 1 tbsp olive oil",
+                "Grilled chicken salad: 100g chicken breast + mixed greens + 1 tbsp balsamic dressing",
+                "1 scoop ON whey protein shake + 200ml water + 1 handful of nuts (e.g., almonds or walnuts)"
+            ]
+        };
+
+        function generateMealPlan() {
+            const breakfast = mealOptions.breakfast[Math.floor(Math.random() * mealOptions.breakfast.length)];
+            const lunch = mealOptions.lunch[Math.floor(Math.random() * mealOptions.lunch.length)];
+            const dinner = mealOptions.dinner[Math.floor(Math.random() * mealOptions.dinner.length)];
+
+            const mealPlanDiv = document.getElementById('meal-plan');
+            mealPlanDiv.innerHTML = `
+                <div class="meal">
+                    <h2>Breakfast</h2>
+                    <p>${breakfast}</p>
+                </div>
+                <div class="meal">
+                    <h2>Lunch</h2>
+                    <p>${lunch}</p>
+                </div>
+                <div class="meal">
+                    <h2>Dinner</h2>
+                    <p>${dinner}</p>
+                </div>
+            `;
+        }
+    </script>
+</body>
+</html>
